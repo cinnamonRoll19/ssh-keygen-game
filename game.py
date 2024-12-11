@@ -2,7 +2,7 @@ from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.asymmetric import rsa
 from cryptography.hazmat.primitives import serialization
 
-def gen_kp(s):
+def gen_k(s):
     pr = rsa.generate_private_key(
         public_exponent=65537,
         key_size=s,
@@ -45,7 +45,7 @@ def main():
         return
 
     print(f"Генерация SSH ключа размером {s} бит...")
-    pr_key, pub_key = gen_kp(s)
+    pr_key, pub_key = gen_k(s)
     
     print("\nВаш сгенерированный приватный SSH ключ:")
     print(pr_key.decode())
